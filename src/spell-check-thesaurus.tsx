@@ -43,7 +43,7 @@ export default function SpellCheck() {
       setResults(data[0]);
       setSuggestions([]);
     } catch (error) {
-      showToast({ style: Toast.Style.Failure, title: "Word not found" });
+      showToast({ style: Toast.Style.Failure, title: "Word not found, not in thesaurus" });
       setResults(null);
     } finally {
       setIsLoading(false);

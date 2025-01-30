@@ -103,7 +103,7 @@ export default function NetworkInfo() {
         }
         actions={
           <ActionPanel>
-            <Action.CopyToClipboard content={details.ip} title="Copy IP" />
+            <Action.CopyToClipboard content={details.ip} title="Copy Ip" />
             <Action.CopyToClipboard content={JSON.stringify(details, null, 2)} title="Copy All Details" />
           </ActionPanel>
         }
@@ -144,12 +144,12 @@ export default function NetworkInfo() {
               <ActionPanel>
                 <Action.CopyToClipboard
                   content={iface.ipv4 || iface.ipv6 || ""}
-                  title="Copy IP"
+                  title="Copy Ip"
                   shortcut={{ modifiers: ["cmd"], key: "1" }}
                 />
                 <Action.CopyToClipboard
                   content={iface.mac || ""}
-                  title="Copy MAC Address"
+                  title="Copy Mac Address"
                   shortcut={{ modifiers: ["cmd"], key: "2" }}
                 />
                 <Action.CopyToClipboard

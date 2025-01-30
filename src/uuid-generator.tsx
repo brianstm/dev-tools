@@ -155,22 +155,22 @@ export default function UuidGenerator() {
           actions={
             <ActionPanel>
               <Action
-                title="Version 1 (Time-based)"
+                title="Version 1 (time-based)"
                 onAction={() => setVersion("v1")}
                 shortcut={{ modifiers: ["cmd"], key: "1" }}
               />
               <Action
-                title="Version 3 (MD5 + Namespace)"
+                title="Version 3 (md5 + Namespace)"
                 onAction={() => setVersion("v3")}
                 shortcut={{ modifiers: ["cmd"], key: "3" }}
               />
               <Action
-                title="Version 4 (Random)"
+                title="Version 4 (random)"
                 onAction={() => setVersion("v4")}
                 shortcut={{ modifiers: ["cmd"], key: "4" }}
               />
               <Action
-                title="Version 5 (SHA-1 + Namespace)"
+                title="Version 5 (sha-1 + Namespace)"
                 onAction={() => setVersion("v5")}
                 shortcut={{ modifiers: ["cmd"], key: "5" }}
               />
@@ -188,7 +188,7 @@ export default function UuidGenerator() {
                 shortcut={{ modifiers: ["cmd", "opt"], key: "1" }}
               />
               <Action
-                title="Simple (No Dashes)"
+                title="Simple (no Dashes)"
                 onAction={() => setFormat("simple")}
                 shortcut={{ modifiers: ["cmd", "opt"], key: "2" }}
               />
@@ -222,7 +222,7 @@ export default function UuidGenerator() {
                   shortcut={{ modifiers: ["cmd", "shift", "ctrl"], key: "1" }}
                 />
                 <Action
-                  title="Reset to DNS Default"
+                  title="Reset to Dns Default"
                   onAction={() => {
                     setNamespace("6ba7b810-9dad-11d1-80b4-00c04fd430c8");
                     showToast({ style: Toast.Style.Success, title: "Namespace reset" });

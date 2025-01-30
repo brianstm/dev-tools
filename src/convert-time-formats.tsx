@@ -1,4 +1,4 @@
-import { ActionPanel, Form, Action, showToast, Toast, Detail, Clipboard, List } from "@raycast/api";
+import { ActionPanel, Form, Action, showToast, Toast, List } from "@raycast/api";
 import * as chrono from "chrono-node";
 import { DateTime } from "luxon";
 import { useState } from "react";

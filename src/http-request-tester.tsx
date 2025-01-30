@@ -40,7 +40,7 @@ export default function HttpTester() {
           break;
       }
 
-      const config: any = {
+      const config: Record<string, unknown> = {
         method,
         url,
         headers: headersObj,
@@ -48,7 +48,7 @@ export default function HttpTester() {
       };
 
       if (authType === "apiKey" && apiKeyLocation === "query") {
-        config.params = { ...config.params, [apiKey]: apiValue };
+        config.params = { ...(config.params || {}), [apiKey]: apiValue };
       }
 
       const startTime = Date.now();
@@ -61,14 +61,18 @@ Headers: ${JSON.stringify(res.headers, null, 2)}
 Body: ${JSON.stringify(res.data, null, 2)}`);
 
       showToast({ style: Toast.Style.Success, title: "Request successful" });
-    } catch (error: any) {
-      setResponse(`Error: ${error.message}
+    } catch (error: unknown) {
+      if (axios.isAxiosError(error)) {
+        setResponse(`Error: ${error.message}
 ${
   error.response
     ? `Status: ${error.response.status}
 Body: ${JSON.stringify(error.response.data)}`
     : ""
 }`);
+      } else {
+        setResponse(`Error: ${String(error)}`);
+      }
       showToast({ style: Toast.Style.Failure, title: "Request failed" });
     }
   };

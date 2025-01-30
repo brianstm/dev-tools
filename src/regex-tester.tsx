@@ -1,6 +1,6 @@
 import { Form, ActionPanel, Action, showToast, Toast } from "@raycast/api";
 import { useState } from "react";
-const RandExp = require("randexp");
+import RandExp from "randexp";
 
 const predefinedRegexes = {
   email: {
@@ -97,8 +97,8 @@ export default function RegexCreator() {
 
     try {
       const regex = new RegExp(pattern.trim(), flags);
-      const randexp = new RandExp(regex);
-      const example = randexp.gen();
+      const randexpgen = new RandExp(regex);
+      const example = randexpgen.gen();
 
       setTestString(example);
       showToast({ style: Toast.Style.Success, title: "Example generated!" });

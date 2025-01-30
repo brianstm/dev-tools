@@ -1,4 +1,4 @@
-import { List, ActionPanel, Action, Form, showToast, Toast } from "@raycast/api";
+import { ActionPanel, Action, Form, showToast, Toast } from "@raycast/api";
 import { useState } from "react";
 
 export default function UrlParser() {

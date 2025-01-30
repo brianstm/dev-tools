@@ -25,7 +25,7 @@ export default function JsonFormatter() {
     <Form
       actions={
         <ActionPanel>
-          <Action.SubmitForm title="Format JSON" onSubmit={formatJson} />
+          <Action.SubmitForm title="Format Json" onSubmit={formatJson} />
         </ActionPanel>
       }
     >

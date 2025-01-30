@@ -32,7 +32,12 @@ export default function HashGenerator() {
         </ActionPanel>
       }
     >
-      <Form.Dropdown id="algorithm" title="Algorithm" value={algorithm} onChange={(val) => setAlgorithm(val as any)}>
+      <Form.Dropdown
+        id="algorithm"
+        title="Algorithm"
+        value={algorithm}
+        onChange={(val) => setAlgorithm(val as "MD5" | "SHA256" | "SHA512")}
+      >
         <Form.Dropdown.Item value="MD5" title="MD5" />
         <Form.Dropdown.Item value="SHA256" title="SHA-256" />
         <Form.Dropdown.Item value="SHA512" title="SHA-512" />

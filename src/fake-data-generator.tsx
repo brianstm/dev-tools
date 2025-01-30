@@ -34,7 +34,7 @@ export default function FakeDataGenerator() {
 
       for (let i = 0; i < countNum; i++) {
         switch (dataType) {
-          case "name":
+          case "name": {
             generatedData.push(
               nameType === "full"
                 ? faker.person.fullName()
@@ -43,13 +43,16 @@ export default function FakeDataGenerator() {
                   : faker.person.lastName(),
             );
             break;
-          case "email":
+          }
+          case "email": {
             generatedData.push(faker.internet.email());
             break;
-          case "phone":
+          }
+          case "phone": {
             generatedData.push(faker.phone.number({ style: numberType }));
             break;
-          case "address":
+          }
+          case "address": {
             const addressParts = [];
             if (addressFields.includes("street")) addressParts.push(faker.location.streetAddress());
             if (addressFields.includes("city")) addressParts.push(faker.location.city());
@@ -58,7 +61,8 @@ export default function FakeDataGenerator() {
             if (addressFields.includes("country")) addressParts.push(faker.location.country());
             generatedData.push(addressParts.join(", "));
             break;
-          case "date":
+          }
+          case "date": {
             const date =
               startDate && endDate
                 ? faker.date.between({ from: new Date(startDate), to: new Date(endDate) })
@@ -92,7 +96,8 @@ export default function FakeDataGenerator() {
             }
             generatedData.push(formattedDate);
             break;
-          case "lorem":
+          }
+          case "lorem": {
             const loremCount = parseInt(count);
             generatedData = [
               String(
@@ -104,7 +109,8 @@ export default function FakeDataGenerator() {
               ),
             ];
             break;
-          case "password":
+          }
+          case "password": {
             generatedData.push(
               generate({
                 length: parseInt(passwordLength || "12"),
@@ -115,6 +121,7 @@ export default function FakeDataGenerator() {
               }),
             );
             break;
+          }
         }
       }
 

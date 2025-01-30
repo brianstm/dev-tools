@@ -2,21 +2,33 @@ import { Form, ActionPanel, Action, showToast, Toast } from "@raycast/api";
 import { useState } from "react";
 
 type CalculationType = "ohms-law" | "power-factor" | "voltage-drop" | "time-constant";
-type TimeConstantType = "rc" | "rl";
+
+type FormValues = {
+  voltage?: string;
+  current?: string;
+  resistance?: string;
+  realPower?: string;
+  apparentPower?: string;
+  resistancePerLength?: string;
+  length?: string;
+  timeConstantType?: "rc" | "rl";
+  capacitance?: string;
+  inductance?: string;
+};
 
 export default function ElectricalCalculator() {
   const [calcType, setCalcType] = useState<CalculationType>("ohms-law");
   const [result, setResult] = useState("");
   const [formValues, setFormValues] = useState<{ [key: string]: string }>({});
 
-  const calculateValues = (values: any) => {
+  const calculateValues = (values: FormValues) => {
     try {
       let calculation = "";
       switch (calcType) {
-        case "ohms-law":
-          const v = parseFloat(values.voltage);
-          const i = parseFloat(values.current);
-          const r = parseFloat(values.resistance);
+        case "ohms-law": {
+          const v = parseFloat(values.voltage || "");
+          const i = parseFloat(values.current || "");
+          const r = parseFloat(values.resistance || "");
 
           if ([v, i, r].filter(Boolean).length !== 2) {
             throw new Error("Provide exactly two values");
@@ -26,34 +38,38 @@ export default function ElectricalCalculator() {
           else if (v && r) calculation = `Current: ${(v / r).toFixed(4)} A`;
           else if (i && r) calculation = `Voltage: ${(i * r).toFixed(4)} V`;
           break;
+        }
 
-        case "power-factor":
-          const p = parseFloat(values.realPower);
-          const s = parseFloat(values.apparentPower);
+        case "power-factor": {
+          const p = parseFloat(values.realPower || "");
+          const s = parseFloat(values.apparentPower || "");
           if (!p || !s) throw new Error("Both values required");
           calculation = `Power Factor: ${(p / s).toFixed(4)}`;
           break;
+        }
 
-        case "voltage-drop":
-          const current = parseFloat(values.current);
-          const rPerLength = parseFloat(values.resistancePerLength);
-          const length = parseFloat(values.length);
+        case "voltage-drop": {
+          const current = parseFloat(values.current || "");
+          const rPerLength = parseFloat(values.resistancePerLength || "");
+          const length = parseFloat(values.length || "");
           if (!current || !rPerLength || !length) throw new Error("All values required");
           calculation = `Voltage Drop: ${(current * rPerLength * length).toFixed(4)} V`;
           break;
+        }
 
-        case "time-constant":
-          const resistance = parseFloat(values.resistance);
+        case "time-constant": {
+          const resistance = parseFloat(values.resistance || "");
           const circuitType = values.timeConstantType;
 
           if (circuitType === "rc") {
-            const capacitance = parseFloat(values.capacitance);
+            const capacitance = parseFloat(values.capacitance || "");
             calculation = `τ (RC): ${(resistance * capacitance).toFixed(6)} s`;
           } else {
-            const inductance = parseFloat(values.inductance);
+            const inductance = parseFloat(values.inductance || "");
             calculation = `τ (RL): ${(inductance / resistance).toFixed(6)} s`;
           }
           break;
+        }
       }
 
       setResult(calculation);

@@ -1,4 +1,4 @@
-import { Form, Image, List } from "@raycast/api";
+import { Form } from "@raycast/api";
 import { useState, useEffect } from "react";
 
 const COLOR_BANDS = [

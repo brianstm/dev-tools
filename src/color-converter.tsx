@@ -89,9 +89,21 @@ export default function ColorConverter() {
     <Form
       actions={
         <ActionPanel>
-          <Action.CopyToClipboard title="Copy HEX" content={hex} shortcut={{ modifiers: ["cmd"], key: "1" }} />
-          <Action.CopyToClipboard title="Copy RGB" content={rgb} shortcut={{ modifiers: ["cmd"], key: "2" }} />
-          <Action.CopyToClipboard title="Copy HSL" content={hsl} shortcut={{ modifiers: ["cmd"], key: "3" }} />
+          <Action.CopyToClipboard
+            title="Copy Hex to Clipboard"
+            content={hex}
+            shortcut={{ modifiers: ["cmd"], key: "1" }}
+          />
+          <Action.CopyToClipboard
+            title="Copy Rgb to Clipboard"
+            content={rgb}
+            shortcut={{ modifiers: ["cmd"], key: "2" }}
+          />
+          <Action.CopyToClipboard
+            title="Copy Hsl to Clipboard"
+            content={hsl}
+            shortcut={{ modifiers: ["cmd"], key: "3" }}
+          />
         </ActionPanel>
       }
     >

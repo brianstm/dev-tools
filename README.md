@@ -65,9 +65,7 @@
 ## Installation
 
 1. **Install Raycast**: If you haven't already, download and install [Raycast](https://www.raycast.com/).
-2. **Add Dev Toolbox**:
-   - Open Raycast and go to the Extensions section.
-   - Search for "Dev Toolbox" and click "Install".
+2. **Add Dev Toolbox**: Download the Repository and run it
 
 ## Usage
 
@@ -87,7 +85,7 @@ Contributions are welcome! If you have any suggestions, bug reports, or feature 
 
 - GitHub: [brianstm](https://github.com/brianstm)
 - LinkedIn: [Brians Tjipto](https://www.linkedin.com/in/brians-tjipto-a25850153/)
-- Portfolio: [brians-tjipto.vercel.app](https://brians-tjipto.vercel.app/)
+- Portfolio: [brians-tjipto.vercel.app](https://brianstjipto.xyz/)
 
 ---
 
